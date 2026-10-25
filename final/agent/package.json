@@ -1,0 +1,40 @@
+{
+  "name": "pass-concierge",
+  "version": "0.0.0",
+  "type": "module",
+  "imports": {
+    "#*": "./agent/*",
+    "#evals/*": "./evals/*"
+  },
+  "scripts": {
+    "dev": "eve dev",
+    "build": "eve build",
+    "deploy": "eve deploy",
+    "eval": "eve eval",
+    "typecheck": "tsc",
+    "db:push": "drizzle-kit push",
+    "db:seed": "tsx lib/db/seed.ts",
+    "db:reset": "rm -f pass.db pass.db-shm pass.db-wal && npm run db:push && npm run db:seed",
+    "setup": "npm run db:reset"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.87",
+    "@vercel/connect": "2.5.2",
+    "ai": "^7.0.137",
+    "better-sqlite3": "^13.0.3",
+    "drizzle-orm": "^0.45.2",
+    "eve": "0.81.1",
+    "just-bash": "^3.6.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "24.x",
+    "drizzle-kit": "^0.31.10",
+    "tsx": "^4.23.13",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
